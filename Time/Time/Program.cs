@@ -122,13 +122,14 @@ namespace Time
         static void Main(string[] args)
         {
             Time d1 = new Time(6,4,5,3);//sutimi, secunde, minute, ore
-            Time d2 = new Time(3,4,5,3);
+            Time d2 = new Time(3,4,57,3);
             Console.WriteLine("Timpul1: {0}\nTimpul2: {1}", d1, d2);
-            Console.WriteLine("Diferenta dintre cei 2 timpi este de {0} sutimi", d1 - d2);
+            Console.WriteLine("Diferenta dintre cei 2 timpi este de {0}:{1}:{2}:{3}",  (((d1 - d2) % 3600000) % 60000) % 1000 , (((d1 - d2) % 3600000) % 60000)/ 1000 ,((d1 - d2) % 3600000)/ 60000,(d1 - d2)/ 3600000);
+            Console.WriteLine("Adunarea celor 2 timpi este de {0}:{1}:{2}:{3}", (((d1 + d2) % 3600000) % 60000) % 1000, (((d1 + d2) % 3600000) % 60000) / 1000, ((d1 + d2) % 3600000) / 60000, (d1 + d2) / 3600000);
             if (d1 == d2)
                 Console.WriteLine("Orele coincid");
             else
- if (d1 < d2)
+                if (d1 < d2)
                 Console.WriteLine("Timpul1 este anterior timpului2");
             else
                 Console.WriteLine("Timpul2 este anterior timpului1");
